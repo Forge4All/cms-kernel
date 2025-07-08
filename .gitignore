@@ -39,3 +39,8 @@
 
 # debug information files
 *.dwo
+
+# CMake files
+
+# Build directories
+build/
