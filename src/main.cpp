@@ -1,5 +1,5 @@
 #include <iostream>
-int main() {
-    std::cout << "Hello, CMS Kernel!" << std::endl;
-    return 0;
+auto main() -> int {
+  std::cout << "Hello, CMS Kernel!" << "\n";
+  return 0;
 }
