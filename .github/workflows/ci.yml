@@ -1,0 +1,43 @@
+name: C++ CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up C++ (install compilers and tools)
+      uses: aminya/setup-cpp@v1
+
+    - name: Configure CMake
+      run: |
+        mkdir -p build
+        cd build
+        cmake ..
+
+    - name: Build project
+      run: |
+        cd build
+        cmake --build .
+
+    - name: Run clang-format check
+      run: |
+        find src include tests -name '*.cpp' -o -name '*.h' | xargs clang-format --dry-run --Werror
+
+    - name: Run clang-tidy
+      run: |
+        cd build
+        cmake --build . --target lint || true
+
+    - name: Run unit tests
+      run: |
+        cd build
+        ctest --output-on-failure
