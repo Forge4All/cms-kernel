@@ -41,7 +41,7 @@ CheckOptions:
     value: CamelCase
   - key: readability-identifier-naming.LabelCase
     value: CamelCase
-  - key: readability-identifier-naming.NamespaceAliasCase   
+  - key: readability-identifier-naming.NamespaceAliasCase
     value: CamelCase
   - key: readability-identifier-naming.GlobalConstantCase
     value: UPPER_CASE
