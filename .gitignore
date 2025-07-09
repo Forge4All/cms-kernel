@@ -44,3 +44,5 @@
 
 # Build directories
 build/
+
+# VS Code workspace files
