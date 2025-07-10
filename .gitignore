@@ -46,3 +46,4 @@
 build/
 
 # VS Code workspace files
+.vscode/settings.json
