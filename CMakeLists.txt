@@ -16,7 +16,13 @@ add_custom_target(
 )
 
 # Main executable
-add_executable(cms-kernel src/main.cpp src/core/kernel.cpp)
+add_executable(
+  cms-kernel
+
+  src/main.cpp
+  src/core/kernel.cpp
+  src/core/logger.cpp
+)
 target_include_directories(cms-kernel PRIVATE ${CMAKE_SOURCE_DIR}/include)
 
 # --- Google Test setup ---
@@ -37,7 +43,10 @@ add_executable(
   kernel_tests
   tests/sanity_test.cpp
   tests/kernel_test.cpp
+  tests/logger_test.cpp
+
   src/core/kernel.cpp
+  src/core/logger.cpp
 )
 
 target_include_directories(kernel_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)

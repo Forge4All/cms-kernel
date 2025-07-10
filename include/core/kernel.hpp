@@ -1,5 +1,7 @@
 #pragma once
 
+#include "core/logger.hpp"
+
 namespace cms {
 
 class Kernel {
@@ -13,7 +15,9 @@ class Kernel {
   void restart();
 
  private:
-  bool running;
+  bool running_;
+
+  Logger logger_;
 };
 
 }  // namespace cms
