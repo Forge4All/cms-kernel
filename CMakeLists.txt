@@ -19,9 +19,12 @@ add_custom_target(
 add_executable(
   cms-kernel
 
+  config-sample.env
+
   src/main.cpp
   src/core/kernel.cpp
   src/core/logger.cpp
+  src/core/config.cpp
 )
 target_include_directories(cms-kernel PRIVATE ${CMAKE_SOURCE_DIR}/include)
 
@@ -39,14 +42,23 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
+configure_file(${CMAKE_SOURCE_DIR}/config-sample.env
+               ${CMAKE_BINARY_DIR}/config-sample.env
+               COPYONLY)
+
 add_executable(
   kernel_tests
+
+  config-sample.env
+
   tests/sanity_test.cpp
   tests/kernel_test.cpp
   tests/logger_test.cpp
+  tests/config_test.cpp
 
   src/core/kernel.cpp
   src/core/logger.cpp
+  src/core/config.cpp
 )
 
 target_include_directories(kernel_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
