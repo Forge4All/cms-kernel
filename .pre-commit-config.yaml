@@ -29,6 +29,6 @@ repos:
     hooks:
     - id: run-tests
       name: Run tests before push
-      entry: ./run_tests.sh
+      entry: ./scripts/run_tests.sh
       language: script
       stages: [pre-push]
