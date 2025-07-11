@@ -10,7 +10,7 @@ class Kernel {
   Kernel(const std::string& configPath = "config.env");
   ~Kernel();
 
-  void start();
+  bool start();
   void stop();
   bool isRunning() const;
   void restart();
@@ -19,7 +19,7 @@ class Kernel {
   bool running_;
   std::string configPath_;
   Logger logger_;
-  Config config;
+  Config config_;
 };
 
 }  // namespace cms

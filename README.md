@@ -7,12 +7,18 @@ A modular, object-oriented C++ kernel for a next-generation CMS, designed for le
 1. Clone the repo: `git clone ...`
 2. Build: `mkdir build && cd build && cmake .. && cmake --build .`
 3. Run tests: `ctest`
-4.
+
 ## Development
 
 - Lint: `clang-tidy ...`
 - Format: `clang-format ...`
 - Pre-commit: `pre-commit run --all-files`
+
+## Developer Scripts
+
+All developer tools and automation scripts are in the `scripts/` directory.
+- To build: `./scripts/build.sh`
+- To run tests: `./scripts/test.sh`
 
 ## Contributing
 

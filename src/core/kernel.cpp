@@ -15,12 +15,12 @@ Kernel::~Kernel() {
   }
 }
 
-void Kernel::start() {
-  if (config.loadFromFile(configPath_)) {
+bool Kernel::start() {
+  if (config_.loadFromFile(configPath_)) {
     logger_.info("Configuration loaded successfully.");
   } else {
     logger_.error("Failed to load configuration.");
-    return;
+    return false;
   }
 
   if (!running_) {
@@ -29,6 +29,8 @@ void Kernel::start() {
   } else {
     logger_.warning("Kernel is already running.");
   }
+
+  return running_;
 }
 
 void Kernel::stop() {
