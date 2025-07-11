@@ -6,7 +6,9 @@
 
 namespace cms {
 
-Kernel::Kernel() : running_(false) {}
+Kernel::Kernel(const std::string& configPath)
+    : configPath_(configPath), running_(false) {}
+
 Kernel::~Kernel() {
   if (running_) {
     stop();
@@ -14,6 +16,13 @@ Kernel::~Kernel() {
 }
 
 void Kernel::start() {
+  if (config.loadFromFile(configPath_)) {
+    logger_.info("Configuration loaded successfully.");
+  } else {
+    logger_.error("Failed to load configuration.");
+    return;
+  }
+
   if (!running_) {
     running_ = true;
     logger_.info("Kernel started.");

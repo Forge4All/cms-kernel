@@ -1,12 +1,13 @@
 #pragma once
 
+#include "core/config.hpp"
 #include "core/logger.hpp"
 
 namespace cms {
 
 class Kernel {
  public:
-  Kernel();
+  Kernel(const std::string& configPath = "config.env");
   ~Kernel();
 
   void start();
@@ -16,8 +17,9 @@ class Kernel {
 
  private:
   bool running_;
-
+  std::string configPath_;
   Logger logger_;
+  Config config;
 };
 
 }  // namespace cms

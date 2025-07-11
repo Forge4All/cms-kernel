@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 
 TEST(KernelTest, StartsAndStopsCorrectly) {
-  cms::Kernel kernel;
+  cms::Kernel kernel("config-sample.env");
 
   EXPECT_FALSE(kernel.isRunning());
 
